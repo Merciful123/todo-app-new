@@ -1,0 +1,9 @@
+.books{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
+}
+
+.book-card{
+    padding: 10px 20px;
+}
