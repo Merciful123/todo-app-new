@@ -16,7 +16,7 @@ const db = mysql.createPool({
  
 
 app.get("/", (req, res) => {
-    res.send("This is our backend")
+    res.send("This is our backend test")
 })
 
 app.get("/books", (req, res) => {
