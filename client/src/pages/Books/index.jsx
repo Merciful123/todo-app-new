@@ -9,9 +9,10 @@ const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const books = await axios.get("http://localhost:8000/books");
-        setBooks(books.data);
-        console.log(books);
+        // const books = await axios.get("http://localhost:8000/books");
+        const books = await axios.get("https://merciful.wuaze.com/books");
+
+          setBooks(books.data);
       } catch (error) {
         console.log(error);
       }
@@ -21,7 +22,9 @@ const Books = () => {
 
   const handleDelete = async (id) => {
     try {
-        await axios.delete("http://localhost:8000/books/" + id);
+        // await axios.delete("http://localhost:8000/books/" + id);
+        await axios.delete("https://merciful.wuaze.com/books/" + id);
+
         window.location.reload()
     } catch (error) {
       console.log(error);
@@ -32,7 +35,7 @@ const Books = () => {
     <div>
       <h1>Todos list</h1>
       {books &&
-        books.map((book) => (
+        books?.map((book) => (
           <div key={book.id} className="books">
             <div className="book-card">
               <div className="book">{book.title}</div>

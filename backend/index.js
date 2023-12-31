@@ -8,15 +8,31 @@ const port = 8000
 
 app.use(express.json())
 
-app.use(cors())
+app.use(
+  cors({
+    origin: "http://127.0.0.1:5173",
+  })
+);
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://127.0.0.1:5173");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  next();
+});
+
 
 const db = mysql.createPool({
-    host: "localhost",
-    user:"root",
-    password: "Mysql@313",
-    database: "todo-test",
-    
-})
+  //   host: "localhost",
+  //   user: "root",
+  //   password: "Mysql@313",
+  //   database: "todo-test",
+
+  host: "sql101.infinityfree.com",
+  user: "if0_35700973",
+  password: "6lmE3kogx9Lc40P",
+  database: "if0_35700973_mercydatabase",
+});
 
 // get all todo 
 

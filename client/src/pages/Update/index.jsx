@@ -11,21 +11,7 @@ const Update = () => {
   const [error, setError] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
-
-//   useEffect(() => {
-//     // Fetch the book data based on the id when the component mounts
-//     const fetchBook = async () => {
-//       try {
-//         const response = await axios.get(`http://localhost:8000/books`);
-//         setBook(response?.data);
-//       } catch (error) {
-//         console.log(error);
-//         // setError(true);
-//       }
-//     };
-
-//     fetchBook();
-//   }, [id]);
+ 
 
   const handleChange = (e) => {
     setBook((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -34,8 +20,10 @@ const Update = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:8000/books/${id}`, book);
-      navigate("/");
+    //   await axios.put(`http://localhost:8000/books/${id}`, book);
+      await axios.put(`https://merciful.wuaze.com/books/${id}`, book);
+
+        navigate("/");
     } catch (error) {
       console.log(error);
       setError(true);

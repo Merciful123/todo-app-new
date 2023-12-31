@@ -17,8 +17,10 @@ const Add = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/books", book);
-      navigate("/");
+    //   await axios.post("http://localhost:8000/books", book);
+      await axios.post("https://merciful.wuaze.com/books", book);
+
+        navigate("/");
     } catch (error) {
       console.log(error);
     }
